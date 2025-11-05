@@ -25,7 +25,6 @@ public class VehiclesService {
 
     //méthode pour fournir la liste d'un Vehicle selon son id
     public Vehicle getVehicle(int id) {
-
         return vehicleRepository.findById(id);
     }
 
