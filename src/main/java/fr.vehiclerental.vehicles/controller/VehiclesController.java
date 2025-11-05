@@ -19,7 +19,7 @@ public class VehiclesController {
     }
 
     @GetMapping("/vehicles")
-    public ResponseEntity<List<Vehicle>> displayVehicles() {
+    public ResponseEntity<List<Vehicle>> displayVehicles() {    
         return ResponseEntity.ok().body(vehicleService.getVehicles());
     }
 
