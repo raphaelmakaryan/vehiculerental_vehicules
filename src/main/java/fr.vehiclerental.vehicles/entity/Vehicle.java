@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Random;
+
 @Entity
 public class Vehicle {
 
@@ -19,6 +21,7 @@ public class Vehicle {
     protected Integer cylinder;
     protected Integer volume;
     protected int pricePerKilometer;
+    protected int defaultPrice;
 
 
     public Vehicle(int id, String type, String model, String color, String registration, int horsePower, int cylinder, int volume, int pricePerKilometer) {
@@ -31,6 +34,7 @@ public class Vehicle {
         this.cylinder = cylinder;
         this.volume = volume;
         this.pricePerKilometer = pricePerKilometer;
+        this.defaultPrice = new Random().nextInt(0,500);
     }
 
     public Vehicle() {
@@ -68,6 +72,9 @@ public class Vehicle {
     public int getpricePerKilometer() {
         return pricePerKilometer;
     }
+    public int getDefaultPrice() {
+        return defaultPrice;
+    }
 
 
 
@@ -102,5 +109,8 @@ public class Vehicle {
     }
     public void setpricePerKilometer(int pricePerKilometer) {
         this.pricePerKilometer = pricePerKilometer;
+    }
+    public void setDefaultPrice(int defaultPrice) {
+        this.defaultPrice = defaultPrice;
     }
 }
