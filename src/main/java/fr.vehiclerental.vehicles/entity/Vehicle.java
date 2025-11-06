@@ -16,13 +16,12 @@ public class Vehicle {
     protected String color;
     protected String registration;
     protected int horsePower;
-    protected int cylinder;
-    protected int volume;
-    protected int price;
-    protected int reservationFee;
+    protected Integer cylinder;
+    protected Integer volume;
+    protected int pricePerKilometer;
 
 
-    public Vehicle(int id, String type, String model, String color, String registration, int horsePower, int cylinder, int volume, int price, int reservationFee) {
+    public Vehicle(int id, String type, String model, String color, String registration, int horsePower, int cylinder, int volume, int pricePerKilometer) {
         this.id = id;
         this.type = type;
         this.model = model;
@@ -31,8 +30,7 @@ public class Vehicle {
         this.horsePower = horsePower;
         this.cylinder = cylinder;
         this.volume = volume;
-        this.price = price;
-        this.reservationFee = reservationFee;
+        this.pricePerKilometer = pricePerKilometer;
     }
 
     public Vehicle() {
@@ -67,12 +65,10 @@ public class Vehicle {
     public int getVolume() {
         return volume;
     }
-    public int getPrice() {
-        return price;
+    public int getpricePerKilometer() {
+        return pricePerKilometer;
     }
-    public int getReservationFee() {
-        return reservationFee;
-    }
+
 
 
     // SETTER
@@ -104,10 +100,7 @@ public class Vehicle {
     public void setVolume(int volume) {
         this.volume = volume;
     }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    public void setReservationFee(int reservationFee) {
-        this.reservationFee = reservationFee;
+    public void setpricePerKilometer(int pricePerKilometer) {
+        this.pricePerKilometer = pricePerKilometer;
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface VehiclesRepository extends CrudRepository<Vehicle, Integer> {
     List<Vehicle> findAll();
-    Vehicle findById(int id);
+    List<Vehicle> findById(int id);
 }
