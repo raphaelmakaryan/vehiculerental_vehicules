@@ -55,7 +55,7 @@ public class VehiclesService {
         existingVehicle.get(0).setHorsePower(vehicleBodyRequest.getHorsePower());
         existingVehicle.get(0).setCylinder(vehicleBodyRequest.getCylinder());
         existingVehicle.get(0).setVolume(vehicleBodyRequest.getVolume());
-        existingVehicle.get(0).setpricePerKilometer(vehicleBodyRequest.getpricePerKilometer());
+        existingVehicle.get(0).setPricePerKilometer(vehicleBodyRequest.getPricePerKilometer());
         vehicleRepository.save(existingVehicle.get(0));
     }
 

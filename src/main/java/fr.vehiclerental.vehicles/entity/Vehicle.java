@@ -1,9 +1,6 @@
 package fr.vehiclerental.vehicles.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Random;
 
@@ -17,31 +14,30 @@ public class Vehicle {
     protected String model;
     protected String color;
     protected String registration;
-    protected int horsePower;
+    protected int horse_power;
     protected Integer cylinder;
     protected Integer volume;
-    protected int pricePerKilometer;
-    protected int defaultPrice;
+    protected int price_per_kilometer;
+    protected int default_price;
 
 
-    public Vehicle(int id, String type, String model, String color, String registration, int horsePower, int cylinder, int volume, int pricePerKilometer) {
+    public Vehicle(int id, String type, String model, String color, String registration, int horse_power, int cylinder, int volume, int price_per_kilometer) {
         this.id = id;
         this.type = type;
         this.model = model;
         this.color = color;
         this.registration = registration;
-        this.horsePower = horsePower;
+        this.horse_power = horse_power;
         this.cylinder = cylinder;
         this.volume = volume;
-        this.pricePerKilometer = pricePerKilometer;
-        this.defaultPrice = new Random().nextInt(0,500);
+        this.price_per_kilometer = price_per_kilometer;
+        this.default_price = new Random().nextInt(0, 500);
     }
 
     public Vehicle() {
     }
 
     // GETTER
-
     public int getId() {
         return id;
     }
@@ -57,25 +53,30 @@ public class Vehicle {
     public String getColor() {
         return color;
     }
+
     public String getRegistration() {
         return registration;
     }
+
     public int getHorsePower() {
-        return horsePower;
+        return horse_power;
     }
+
     public int getCylinder() {
         return cylinder;
     }
+
     public int getVolume() {
         return volume;
     }
-    public int getpricePerKilometer() {
-        return pricePerKilometer;
-    }
-    public int getDefaultPrice() {
-        return defaultPrice;
+
+    public int getPricePerKilometer() {
+        return price_per_kilometer;
     }
 
+    public int getDefaultPrice() {
+        return default_price;
+    }
 
 
     // SETTER
@@ -98,19 +99,24 @@ public class Vehicle {
     public void setRegistration(String registration) {
         this.registration = registration;
     }
-    public void setHorsePower(int horsePower) {
-        this.horsePower = horsePower;
+
+    public void setHorsePower(int horse_power) {
+        this.horse_power = horse_power;
     }
+
     public void setCylinder(int cylinder) {
         this.cylinder = cylinder;
     }
+
     public void setVolume(int volume) {
         this.volume = volume;
     }
-    public void setpricePerKilometer(int pricePerKilometer) {
-        this.pricePerKilometer = pricePerKilometer;
+
+    public void setPricePerKilometer(int price_per_kilometer) {
+        this.price_per_kilometer = price_per_kilometer;
     }
-    public void setDefaultPrice(int defaultPrice) {
-        this.defaultPrice = defaultPrice;
+
+    public void setDefaultPrice(int default_price) {
+        this.default_price = default_price;
     }
 }
