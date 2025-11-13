@@ -21,7 +21,7 @@ public class Vehicle {
     protected int default_price;
 
 
-    public Vehicle(int id, String type, String model, String color, String registration, int horse_power, int cylinder, int volume, int price_per_kilometer) {
+    public Vehicle(int id, String type, String model, String color, String registration, int horse_power, Integer cylinder, Integer volume, int price_per_kilometer) {
         this.id = id;
         this.type = type;
         this.model = model;
@@ -104,11 +104,11 @@ public class Vehicle {
         this.horse_power = horse_power;
     }
 
-    public void setCylinder(int cylinder) {
+    public void setCylinder(Integer cylinder) {
         this.cylinder = cylinder;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
