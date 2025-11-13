@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class VehiclesService {
@@ -73,6 +74,7 @@ public class VehiclesService {
         vehicle.setCylinder(2);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
         vehicleRepository.save(vehicle);
     }
 
@@ -86,6 +88,7 @@ public class VehiclesService {
         vehicle.setCylinder(0);
         vehicle.setVolume(2000);
         vehicle.setPricePerKilometer(20);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
         vehicleRepository.save(vehicle);
     }
 
@@ -99,6 +102,7 @@ public class VehiclesService {
         vehicle.setCylinder(0);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
         vehicleRepository.save(vehicle);
     }
 
@@ -112,6 +116,7 @@ public class VehiclesService {
         vehicle.setCylinder(0);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(30);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
         vehicleRepository.save(vehicle);
     }
 
