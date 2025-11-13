@@ -71,7 +71,7 @@ public class VehiclesService {
         vehicle.setRegistration("75-AB-2025");
         vehicle.setHorsePower(750);
         vehicle.setCylinder(2);
-        vehicle.setVolume(null);
+        vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
         vehicleRepository.save(vehicle);
     }
@@ -83,7 +83,7 @@ public class VehiclesService {
         vehicle.setColor("Blanc");
         vehicle.setRegistration("92-CD-2024");
         vehicle.setHorsePower(170);
-        vehicle.setCylinder(null);
+        vehicle.setCylinder(0);
         vehicle.setVolume(2000);
         vehicle.setPricePerKilometer(20);
         vehicleRepository.save(vehicle);
@@ -96,8 +96,8 @@ public class VehiclesService {
         vehicle.setColor("Bleu océan");
         vehicle.setRegistration("75-EF-2023");
         vehicle.setHorsePower(184);
-        vehicle.setCylinder(null);
-        vehicle.setVolume(null);
+        vehicle.setCylinder(0);
+        vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
         vehicleRepository.save(vehicle);
     }
@@ -109,8 +109,8 @@ public class VehiclesService {
         vehicle.setColor("Rouge vif");
         vehicle.setRegistration("13-GH-2024");
         vehicle.setHorsePower(110);
-        vehicle.setCylinder(null);
-        vehicle.setVolume(null);
+        vehicle.setCylinder(0);
+        vehicle.setVolume(0);
         vehicle.setPricePerKilometer(30);
         vehicleRepository.save(vehicle);
     }
