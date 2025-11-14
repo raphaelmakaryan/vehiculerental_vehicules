@@ -7,6 +7,7 @@ import fr.vehiclerental.vehicles.exception.VehicleNotFindException;
 import fr.vehiclerental.vehicles.service.VehiclesRepository;
 import fr.vehiclerental.vehicles.service.VehiclesService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -71,17 +72,7 @@ public class VehiclesController {
                             mediaType = "application/json",
                             schema = @Schema(implementation = Vehicle.class)
                     )
-            ),
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Operation successful but empty",
-                    content = @Content(
-                            mediaType = "application/json",
-                            examples = @ExampleObject(
-                                    value = "[]"
-                            )
-                    )
-            ),
+            )
     })
 
     @GetMapping("/vehicles/{id}")
