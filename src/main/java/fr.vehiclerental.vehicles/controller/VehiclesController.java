@@ -51,16 +51,6 @@ public class VehiclesController {
                             mediaType = "application/json",
                             schema = @Schema(implementation = Vehicle.class)
                     )
-            ),
-            @ApiResponse(
-                    responseCode = "405",
-                    description = "Operation failed",
-                    content = @Content(
-                            mediaType = "application/json",
-                            examples = @ExampleObject(
-                                    "{\"error\" : \"invalid entry\"}"
-                            )
-                    )
             )
     })
 
@@ -83,15 +73,15 @@ public class VehiclesController {
                     )
             ),
             @ApiResponse(
-                    responseCode = "405",
-                    description = "Operation failed",
+                    responseCode = "200",
+                    description = "Operation successful but empty",
                     content = @Content(
                             mediaType = "application/json",
                             examples = @ExampleObject(
-                                    value = "{\"error\" : \"invalid entry\"}"
+                                    value = "[]"
                             )
                     )
-            )
+            ),
     })
 
     @GetMapping("/vehicles/{id}")
@@ -227,6 +217,7 @@ public class VehiclesController {
             throw new VehicleNotEdit();
         }
     }
+
     @Operation(
             summary = "Remove a vehicle from the database",
             description = "Query to delete a vehicle from the database"
