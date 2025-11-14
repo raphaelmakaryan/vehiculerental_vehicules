@@ -20,6 +20,8 @@ public class Vehicle {
     protected int price_per_kilometer;
     protected int default_price;
 
+    public Vehicle() {
+    }
 
     public Vehicle(int id, String type, String model, String color, String registration, int horse_power, Integer cylinder, Integer volume, int price_per_kilometer) {
         this.id = id;
@@ -32,9 +34,6 @@ public class Vehicle {
         this.volume = volume;
         this.price_per_kilometer = price_per_kilometer;
         this.default_price = new Random().nextInt(0, 500);
-    }
-
-    public Vehicle() {
     }
 
     // GETTER

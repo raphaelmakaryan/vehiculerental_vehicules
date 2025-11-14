@@ -3,9 +3,7 @@ package fr.vehiclerental.vehicles.service;
 import fr.vehiclerental.vehicles.entity.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,7 +14,7 @@ public class VehiclesService {
     VehiclesRepository vehicleRepository;
 
     /**
-     * méthode pour fournir la liste des Vehicles
+     * Méthode pour fournir la liste des Vehicles
      *
      * @return la liste des véhicules
      */
@@ -25,7 +23,7 @@ public class VehiclesService {
     }
 
     /**
-     * méthode pour fournir la liste d'un Vehicle selon son id
+     * Méthode pour fournir la liste d'un Vehicle selon son id
      *
      * @param id ID du véhicule
      * @return un véhicule selon son ID
@@ -36,7 +34,7 @@ public class VehiclesService {
 
 
     /**
-     * méthode pour ajouter un Vehicle
+     * Méthode pour ajouter un Vehicle
      *
      * @param vehicle un véhicule
      */
@@ -45,7 +43,7 @@ public class VehiclesService {
     }
 
     /**
-     * méthode pour modifier un Vehicle
+     * Méthode pour modifier un Vehicle
      *
      * @param idVehicleActual    véhicule séléctionné selon son ID
      * @param vehicleBodyRequest le véhicule donné dans la requête
@@ -120,6 +118,9 @@ public class VehiclesService {
         vehicleRepository.save(vehicle);
     }
 
+    /**
+     * Méthode pour créer des véhicules fictifs
+     */
     public void saveInitialData() {
         createMoto();
         createUtility();

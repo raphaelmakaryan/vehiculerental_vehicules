@@ -26,4 +26,16 @@ public class GlobalExceptionHandler {
         ErrorEntity error = new ErrorEntity(LocalDateTime.now(), exception.getMessage(), HttpStatus.NOT_FOUND.value());
         return ResponseEntity.status(HttpStatus.FORBIDDEN.value()).body(error);
     }
+
+    @ExceptionHandler(VehicleNotAdd.class)
+    public ResponseEntity<ErrorEntity> vehicleNotAdd(VehicleNotAdd exception) {
+        ErrorEntity error = new ErrorEntity(LocalDateTime.now(), exception.getMessage(), HttpStatus.NOT_FOUND.value());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN.value()).body(error);
+    }
+
+    @ExceptionHandler(VehicleNotEdit.class)
+    public ResponseEntity<ErrorEntity> vehicleNotEdit(VehicleNotEdit exception) {
+        ErrorEntity error = new ErrorEntity(LocalDateTime.now(), exception.getMessage(), HttpStatus.NOT_FOUND.value());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN.value()).body(error);
+    }
 }

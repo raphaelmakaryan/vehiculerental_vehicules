@@ -1,6 +1,8 @@
 package fr.vehiclerental.vehicles.controller;
 
 import fr.vehiclerental.vehicles.entity.Vehicle;
+import fr.vehiclerental.vehicles.exception.VehicleNotAdd;
+import fr.vehiclerental.vehicles.exception.VehicleNotEdit;
 import fr.vehiclerental.vehicles.exception.VehicleNotFindException;
 import fr.vehiclerental.vehicles.service.VehiclesRepository;
 import fr.vehiclerental.vehicles.service.VehiclesService;
@@ -10,7 +12,6 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -35,7 +36,7 @@ public class VehiclesController {
     @Operation(summary = "Home page")
     @RequestMapping("/")
     public String index() {
-        return "Hello People HElLoOO";
+        return "Welcome to the Vehicle Rental company's Vehicle API!";
     }
 
     @Operation(
@@ -98,7 +99,7 @@ public class VehiclesController {
         try {
             return ResponseEntity.ok().body(vehicleService.getVehicle(VehicleId));
         } catch (Exception exception) {
-            throw new RuntimeException(exception.getMessage());
+            throw new VehicleNotFindException(VehicleId);
         }
     }
 
@@ -153,11 +154,7 @@ public class VehiclesController {
             response.put("message", "Your vehicle has been added !");
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
-            Map<String, Object> response = new HashMap<>();
-            response.put("success", false);
-            response.put("message", "Your vehicle has not been added !");
-            response.put("error", e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+            throw new VehicleNotAdd();
         }
     }
 
@@ -214,7 +211,7 @@ public class VehiclesController {
 
     @PutMapping("/vehicles/{id}")
     public ResponseEntity<Map<String, Object>> toModifyVehicle(@PathVariable(value = "id") int VehicleId,
-                                                   @Validated @RequestBody Vehicle Vehicle) throws BadRequestException {
+                                                               @Validated @RequestBody Vehicle Vehicle) {
         try {
             List<Vehicle> vehicleVerification = vehiclesRepository.findById(VehicleId);
             Map<String, Object> response = new HashMap<>();
@@ -227,10 +224,9 @@ public class VehiclesController {
                 return ResponseEntity.ok(response);
             }
         } catch (Exception e) {
-            throw new BadRequestException(e.getMessage());
+            throw new VehicleNotEdit();
         }
     }
-
     @Operation(
             summary = "Remove a vehicle from the database",
             description = "Query to delete a vehicle from the database"
