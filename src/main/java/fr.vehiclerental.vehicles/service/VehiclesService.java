@@ -65,11 +65,25 @@ public class VehiclesService {
     public void createMoto() {
         Vehicle vehicle = new Vehicle();
         vehicle.setType("motorcycle");
-        vehicle.setModel("Harley-Davidson Street 750");
-        vehicle.setColor("Noir métallique");
-        vehicle.setRegistration("75-AB-2025");
-        vehicle.setHorsePower(750);
-        vehicle.setCylinder(2);
+        vehicle.setModel("Yamaha MT-07");
+        vehicle.setColor("Black");
+        vehicle.setRegistration("BT-605-CX");
+        vehicle.setHorsePower(74);
+        vehicle.setCylinder(690);
+        vehicle.setVolume(0);
+        vehicle.setPricePerKilometer(10);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
+        vehicleRepository.save(vehicle);
+    }
+
+    public void createMoto2() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setType("motorcycle");
+        vehicle.setModel("Honda X-ADV");
+        vehicle.setColor("Black");
+        vehicle.setRegistration("BG-74-DTC");
+        vehicle.setHorsePower(58);
+        vehicle.setCylinder(745);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
         vehicle.setDefaultPrice(new Random().nextInt(0, 500));
@@ -79,12 +93,26 @@ public class VehiclesService {
     public void createUtility() {
         Vehicle vehicle = new Vehicle();
         vehicle.setType("utility");
-        vehicle.setModel("Ford Transit Custom");
-        vehicle.setColor("Blanc");
-        vehicle.setRegistration("92-CD-2024");
-        vehicle.setHorsePower(170);
+        vehicle.setModel("Mercedes Sprinter");
+        vehicle.setColor("Black");
+        vehicle.setRegistration("JM-00-MRC");
+        vehicle.setHorsePower(190);
         vehicle.setCylinder(0);
-        vehicle.setVolume(2000);
+        vehicle.setVolume(17);
+        vehicle.setPricePerKilometer(20);
+        vehicle.setDefaultPrice(new Random().nextInt(0, 500));
+        vehicleRepository.save(vehicle);
+    }
+
+    public void createUtility2() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setType("utility");
+        vehicle.setModel("Renault Trafic");
+        vehicle.setColor("Black");
+        vehicle.setRegistration("DT-580-CL");
+        vehicle.setHorsePower(150);
+        vehicle.setCylinder(0);
+        vehicle.setVolume(9);
         vehicle.setPricePerKilometer(20);
         vehicle.setDefaultPrice(new Random().nextInt(0, 500));
         vehicleRepository.save(vehicle);
@@ -93,10 +121,10 @@ public class VehiclesService {
     public void createCar() {
         Vehicle vehicle = new Vehicle();
         vehicle.setType("car");
-        vehicle.setModel("BMW 320i");
-        vehicle.setColor("Bleu océan");
-        vehicle.setRegistration("75-EF-2023");
-        vehicle.setHorsePower(184);
+        vehicle.setModel("Mercedes CLA");
+        vehicle.setColor("Black and orange");
+        vehicle.setRegistration("GG-605-BB");
+        vehicle.setHorsePower(220);
         vehicle.setCylinder(0);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(10);
@@ -108,9 +136,9 @@ public class VehiclesService {
         Vehicle vehicle = new Vehicle();
         vehicle.setType("car");
         vehicle.setModel("Renault Clio 5");
-        vehicle.setColor("Rouge vif");
-        vehicle.setRegistration("13-GH-2024");
-        vehicle.setHorsePower(110);
+        vehicle.setColor("Red");
+        vehicle.setRegistration("BB-241-GH");
+        vehicle.setHorsePower(150);
         vehicle.setCylinder(0);
         vehicle.setVolume(0);
         vehicle.setPricePerKilometer(30);
@@ -123,7 +151,9 @@ public class VehiclesService {
      */
     public void saveInitialData() {
         createMoto();
+        createMoto2();
         createUtility();
+        createUtility2();
         createCar();
         createCar2();
     }
