@@ -127,10 +127,10 @@ public class VehiclesController {
     })
 
     @PostMapping("/vehicles")
-    public ResponseEntity<Map<String, Object>> addingVehicle(@Validated @RequestBody Vehicle Vehicle) {
+    public ResponseEntity<Map<String, Object>> addingVehicle(@Validated @RequestBody Vehicle requestVehicle) {
         try {
             Map<String, Object> response = new HashMap<>();
-            vehicleService.addingVehicle(Vehicle);
+            vehicleService.addingVehicle(requestVehicle);
             response.put("success", true);
             response.put("message", "Your vehicle has been added !");
             return ResponseEntity.status(HttpStatus.CREATED).body(response);

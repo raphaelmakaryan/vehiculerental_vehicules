@@ -49,7 +49,7 @@ public class VehiclesService {
         newVehicle.setVolume(vehicle.getVolume());
         newVehicle.setPricePerKilometer(vehicle.getPricePerKilometer());
         newVehicle.setDefaultPrice(vehicle.createDefaultPrice());
-        vehicleRepository.save(vehicle);
+        vehicleRepository.save(newVehicle);
     }
 
     /**

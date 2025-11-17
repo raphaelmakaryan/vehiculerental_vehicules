@@ -122,4 +122,20 @@ public class Vehicle {
     public int createDefaultPrice() {
         return new Random().nextInt(0, 500);
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", registration='" + registration + '\'' +
+                ", horse_power=" + horse_power +
+                ", cylinder=" + cylinder +
+                ", volume=" + volume +
+                ", price_per_kilometer=" + price_per_kilometer +
+                ", default_price=" + default_price +
+                '}';
+    }
 }
