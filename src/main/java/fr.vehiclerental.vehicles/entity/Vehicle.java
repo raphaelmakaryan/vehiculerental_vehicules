@@ -118,4 +118,8 @@ public class Vehicle {
     public void setDefaultPrice(int default_price) {
         this.default_price = default_price;
     }
+
+    public int createDefaultPrice() {
+        return new Random().nextInt(0, 500);
+    }
 }

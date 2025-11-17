@@ -39,6 +39,15 @@ public class VehiclesService {
      * @param vehicle un véhicule
      */
     public void addingVehicle(Vehicle vehicle) {
+        Vehicle newVehicle = new Vehicle();
+        newVehicle.setType(vehicle.getType());
+        newVehicle.setModel(vehicle.getModel());
+        newVehicle.setColor(vehicle.getColor());
+        newVehicle.setRegistration(vehicle.getRegistration());
+        newVehicle.setHorsePower(vehicle.getHorsePower());
+        newVehicle.setCylinder(vehicle.getCylinder());
+        newVehicle.setVolume(vehicle.getVolume());
+        newVehicle.setPricePerKilometer(vehicle.createDefaultPrice());
         vehicleRepository.save(vehicle);
     }
 
