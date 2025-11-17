@@ -1,10 +1,16 @@
 package fr.vehiclerental.vehicles.service;
 
 import fr.vehiclerental.vehicles.entity.Vehicle;
+import fr.vehiclerental.vehicles.exception.VehicleNotAdd;
+import fr.vehiclerental.vehicles.exception.VehicleNotEdit;
+import fr.vehiclerental.vehicles.exception.VehicleNotFindException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Service
@@ -52,6 +58,18 @@ public class VehiclesService {
         vehicleRepository.save(newVehicle);
     }
 
+    public Map<String, Object> addVehicleService(Vehicle vehicleRequest) {
+        try {
+            Map<String, Object> response = new HashMap<>();
+            this.addingVehicle(vehicleRequest);
+            response.put("success", true);
+            response.put("message", "Your vehicle has been added !");
+            return response;
+        } catch (Exception e) {
+            throw new VehicleNotAdd();
+        }
+    }
+
     /**
      * Méthode pour modifier un Vehicle
      *
@@ -70,6 +88,37 @@ public class VehiclesService {
         existingVehicle.get(0).setVolume(vehicleBodyRequest.getVolume());
         existingVehicle.get(0).setPricePerKilometer(vehicleBodyRequest.getPricePerKilometer());
         vehicleRepository.save(existingVehicle.get(0));
+    }
+
+    public Map<String, Object> editVehicleService(int idVehicle, Vehicle vehicleRequest, VehiclesRepository vrRepository) {
+        try {
+            List<Vehicle> vehicleVerification = vrRepository.findById(idVehicle);
+            Map<String, Object> response = new HashMap<>();
+            if (vehicleVerification == null || vehicleVerification.isEmpty()) {
+                throw new VehicleNotFindException(idVehicle);
+            } else {
+                this.toModifyVehicle(idVehicle, vehicleRequest);
+                response.put("success", true);
+                response.put("message", "Your vehicle has been modified !");
+                return response;
+            }
+        } catch (Exception e) {
+            throw new VehicleNotEdit();
+        }
+    }
+
+
+    public Map<String, Object> deleteVehicleService(int idVehicle, VehiclesRepository vrRepository) {
+        List<Vehicle> vehicleVerification = vrRepository.findById(idVehicle);
+        if (vehicleVerification == null || vehicleVerification.isEmpty()) {
+            throw new VehicleNotFindException((idVehicle));
+        } else {
+            vrRepository.delete(vehicleVerification.get(0));
+            Map<String, Object> response = new HashMap<>();
+            response.put("sucess", true);
+            response.put("message", "The Vehicle are deleted");
+            return response;
+        }
     }
 
     public void createMoto() {
