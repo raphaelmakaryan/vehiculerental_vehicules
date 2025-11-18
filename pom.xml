@@ -8,10 +8,10 @@
         <version>3.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.vehiclerental</groupId>
-    <artifactId>springbootapplication</artifactId>
+    <groupId>fr.vehiclerental</groupId>
+    <artifactId>vehicleRentalVehicle</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springbootapplication</name>
+    <name>vehicleRentalVehicle</name>
     <description>Demo project for Spring Boot</description>
     <url/>
     <licenses>
